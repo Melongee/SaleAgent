@@ -30,13 +30,16 @@ sales_agent = SalesGPT.from_llm(
 # 初始化对话历史
 chat_history = []
 
-def add_user_message(user_message, chat_history):
+def add_user_message(user_message):
     """立即添加用户消息到聊天历史"""
+    global chat_history
     chat_history.append({"role": "user", "content": user_message})
-    return chat_history, chat_history
+    return chat_history
 
-def generate_ai_response(user_message, chat_history):
+def generate_ai_response(user_message):
     """生成AI回复"""
+    global chat_history
+    
     # 处理AI回复
     sales_agent.human_step(user_message)
     sales_agent.determine_conversation_stage()
@@ -47,10 +50,13 @@ def generate_ai_response(user_message, chat_history):
 
     # 添加AI回复
     chat_history.append({"role": "assistant", "content": last_reply})
-    return chat_history, chat_history
+    return chat_history
 
 def clear_chat():
     """清空对话历史"""
+    global chat_history
+    chat_history = []
+    sales_agent.seed_agent()
     return []
 
 # 自定义CSS样式
@@ -216,8 +222,6 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
             专业领域: 手机销售
         </div>
     """)
-    # 添加会话状态
-    chat_state = gr.State([])  # 每个用户有自己独立的聊天状态
     # 聊天+输入区域合并
     with gr.Column(elem_classes="chat-container"):
         chatbot = gr.Chatbot(
@@ -256,39 +260,14 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
             <p><strong>🔒 隐私保护：</strong>您的对话信息仅用于提供更好的服务体验</p>
         </div>
     """)
-    # 修改事件绑定
-    msg.submit(
-        add_user_message, 
-        inputs=[msg, chat_state], 
-        outputs=[chat_state, chatbot]
-    ).then(
-        lambda: "", None, msg  # 清空输入框
-    ).then(
-        generate_ai_response,
-        inputs=[msg, chat_state],
-        outputs=[chat_state, chatbot],
-        queue=True
-    )
-    
-    submit_btn.click(
-        add_user_message, 
-        inputs=[msg, chat_state], 
-        outputs=[chat_state, chatbot]
-    ).then(
-        lambda: "", None, msg  # 清空输入框
-    ).then(
-        generate_ai_response,
-        inputs=[msg, chat_state],
-        outputs=[chat_state, chatbot],
-        queue=True
-    )
-    
-    clear_btn.click(
-        clear_chat,
-        outputs=chatbot
-    ).then(
-        lambda: [], None, chat_state  # 同时重置状态
-    )
+    # 事件绑定
+    msg.submit(add_user_message, inputs=msg, outputs=chatbot)
+    msg.submit(lambda: "", None, msg)
+    submit_btn.click(add_user_message, inputs=msg, outputs=chatbot)
+    submit_btn.click(lambda: "", None, msg)
+    msg.submit(generate_ai_response, inputs=msg, outputs=chatbot, queue=True)
+    submit_btn.click(generate_ai_response, inputs=msg, outputs=chatbot, queue=True)
+    clear_btn.click(clear_chat, outputs=chatbot)
 
 if __name__ == "__main__":
     demo.launch(share=False, debug=True)

@@ -1,0 +1,10 @@
+langchain-deepseek
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langchain-text-splitters
+pydantic
+gradio
+chromadb
+sentence-transformers 

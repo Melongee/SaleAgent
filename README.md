@@ -4,7 +4,7 @@ emoji: 🚗
 colorFrom: blue
 colorTo: purple
 sdk: gradio
-sdk_version: "4.0.0"
+sdk_version: 5.35.0
 app_file: app.py
 pinned: false
 ---
@@ -51,4 +51,4 @@ python sale_agent/app.py
 1. 启动应用后，在Web界面中输入消息
 2. 系统会自动分析对话阶段并给出相应回复
 3. 支持产品查询、需求分析、异议处理等功能
-4. 对话会按照销售流程的7个阶段进行管理 
+4. 对话会按照销售流程的7个阶段进行管理

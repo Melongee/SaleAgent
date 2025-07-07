@@ -203,8 +203,8 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
     # 主标题区域
     gr.HTML("""
         <div class="main-header">
-            <h1>🚗 汽车销售智能体助理</h1>
-            <p>专业的智能汽车销售助手，为您提供个性化的购车建议和产品推荐</p>
+            <h1>🚗 果猴手机销售</h1>
+            <p>专业的智能手机销售助手，为您提供个性化的建议和产品推荐</p>
             <div class="features">
                 <span class="feature-item">🤖 智能对话</span>
                 <span class="feature-item">📚 产品知识</span>
@@ -219,7 +219,7 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
             <strong>🤖 智能体信息</strong><br>
             销售顾问: {SALES_AGENT_CONFIG['salesperson_name']} | 
             公司: {SALES_AGENT_CONFIG['company_name']} | 
-            专业领域: 新能源汽车销售
+            专业领域: 手机销售
         </div>
     """)
     # 聊天+输入区域合并

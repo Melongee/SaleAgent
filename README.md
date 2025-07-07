@@ -9,9 +9,9 @@ app_file: app.py
 pinned: false
 ---
 
-# 汽车销售智能体助理
+# 手机销售智能体助理
 
-一个基于LangChain和DeepSeek的智能汽车销售助理系统，能够进行多轮对话，分析客户需求，并提供产品推荐。
+一个基于LangChain和DeepSeek的手机销售助理系统，能够进行多轮对话，分析客户需求，并提供产品推荐。
 
 ## 功能特点
 

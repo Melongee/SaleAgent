@@ -1,12 +1,13 @@
 ---
-title: 汽车销售智能体助理
-emoji: 🚗
-colorFrom: blue
-colorTo: purple
+title: 果猴手机销售助理
+emoji: 📱
+colorFrom: yellow
+colorTo: blue
 sdk: gradio
 sdk_version: 5.35.0
 app_file: app.py
 pinned: false
+short_description: Just for learning and fun.
 ---
 
 # 手机销售智能体助理

@@ -4,7 +4,7 @@ from typing import Dict
 # LLM配置
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 LLM_MODEL = "deepseek-chat"
-LLM_TEMPERATURE = 1.3
+LLM_TEMPERATURE = 0.2
 
 # 销售代理配置
 SALES_AGENT_CONFIG = {

@@ -6,7 +6,7 @@ from config.settings import (
     DEEPSEEK_API_KEY, 
     LLM_MODEL, 
     LLM_TEMPERATURE, 
-    USE_TOOLS, 
+    USE_TOOLS,
     VERBOSE,
     GRADIO_TITLE,
     GRADIO_DESCRIPTION,
@@ -270,4 +270,4 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
     clear_btn.click(clear_chat, outputs=chatbot)
 
 if __name__ == "__main__":
-    demo.launch(share=True, debug=False)
+    demo.launch(share=False, debug=True)

@@ -29,7 +29,7 @@ CONVERSATION_STAGES = {
 }
 
 # 知识库配置
-EMBEDDINGS_PATH = "D:\\ai\\download\\bge-large-zh-v1.5"
+EMBEDDINGS_PATH = "BAAI/bge-large-zh-v1.5"
 PRODUCT_CATALOG_FILE = "sample_product_catalog.txt"
 
 # 工具配置

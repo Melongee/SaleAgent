@@ -203,7 +203,7 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
     # 主标题区域
     gr.HTML("""
         <div class="main-header">
-            <h1>🚗 果猴手机销售</h1>
+            <h1>📱 果猴手机销售</h1>
             <p>专业的智能手机销售助手，为您提供个性化的建议和产品推荐</p>
             <div class="features">
                 <span class="feature-item">🤖 智能对话</span>
@@ -232,7 +232,7 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
         )
         msg = gr.Textbox(
             label="💬 请输入您的问题",
-            placeholder="例如：我想了解问界M7的价格和配置，或者帮我推荐一款适合家用的SUV...",
+            placeholder="例如：我想了解iPhone16的价格和配置，或者帮我推荐一款适合学生用的手机...",
             lines=3,
             max_lines=5,
             elem_classes="textbox-container"

@@ -8,13 +8,13 @@ LLM_TEMPERATURE = 1.3
 
 # 销售代理配置
 SALES_AGENT_CONFIG = {
-    "salesperson_name": "GuaGua",
-    "salesperson_role": "瓜瓜汽车销售经理",
-    "company_name": "瓜瓜汽车",
-    "company_business": "问界、西瓜、界途等是瓜瓜汽车发布的全新豪华新能源汽车品牌，华为从产品设计、产业链管理、质量管理、软件生态、用户经营、品牌营销、销售渠道等方面全流程为瓜瓜的各种品牌提供了支持，双方在长期的合作中发挥优势互补，开创了联合业务、深度跨界合作的新模式。",
-    "company_values": "瓜瓜汽车专注于新能源电动汽车领域的研发、制造和生产，旗下主要产品包括所给文档中的各种品牌（如问界、西瓜等品牌），瓜瓜汽车致力于为全球用户提供高性能的智能电动汽车产品以及愉悦的智能驾驶体验。",
-    "conversation_purpose": "了解他们是否希望通过购买拥有智能驾驶的汽车来获得更好的驾乘体验",
-    "conversation_type": "网络聊天",
+    "salesperson_name": "瓜瓜",
+    "salesperson_role": "果猴手机销售顾问",
+    "company_name": "果猴智能科技",
+    "company_business": "iPhone、西瓜手机等是果猴科技旗下的智能移动设备品牌，从芯片研发、操作系统优化、生态链建设、用户体验设计等方面为全系列产品提供技术支持，实现了硬件性能与软件生态的完美融合，打造了智能终端设备新标杆。",
+    "company_values": "果猴科技专注于智能移动设备的创新研发与生产制造，旗下产品包括iPhone全系列机型及专为特殊群体设计的智能设备（如西瓜手机等）。我们致力于通过尖端科技与人性化设计相结合，为用户提供卓越的移动体验和数字生活方式解决方案。",
+    "conversation_purpose": "了解客户是否希望通过更换最新款智能手机来获得更高效的工作能力或更丰富的娱乐体验",
+    "conversation_type": "线上即时通讯",
 }
 
 # 对话阶段定义
@@ -37,5 +37,5 @@ USE_TOOLS = True
 VERBOSE = False
 
 # Gradio配置
-GRADIO_TITLE = "瓜瓜汽车销售"
-GRADIO_DESCRIPTION = "欢迎使用智能汽车销售助理，我可以为您提供专业的汽车咨询和推荐服务。" 
+GRADIO_TITLE = "瓜瓜手机"
+GRADIO_DESCRIPTION = "欢迎使用手机销售助理，我可以为您提供专业的手机咨询和推荐服务。" 

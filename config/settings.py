@@ -34,7 +34,7 @@ PRODUCT_CATALOG_FILE = "sample_product_catalog.txt"
 
 # 工具配置
 USE_TOOLS = True
-VERBOSE = False
+VERBOSE = True
 
 # Gradio配置
 GRADIO_TITLE = "瓜瓜手机"

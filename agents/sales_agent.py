@@ -55,7 +55,7 @@ def get_tools(product_catalog, llm):
         Tool(
             name="ProductSearch",
             func=knowledge_base.run,
-            description="当您需要回答有关问界汽车产品信息的问题，可以将问题发给这个问界产品知识库工具",
+            description="当您需要回答有关果猴手机产品信息的问题，可以将问题发给这个果猴手机产品知识库工具",
         )
     ]
     return tools

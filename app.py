@@ -63,8 +63,10 @@ def clear_chat():
 custom_css = """
 .gradio-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 1200px !important;
+    max-width: 98vw !important;
+    width: 98vw !important;
     margin: 0 auto !important;
+    padding: 0 !important;
 }
 
 .main-header {
@@ -76,47 +78,66 @@ custom_css = """
     text-align: center;
 }
 
-.main-header h1 {
-    color: white;
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.main-header p {
-    color: rgba(255,255,255,0.9);
-    margin: 1rem 0 0 0;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.agent-info {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* 让主体横向分布 */
+.flex-main {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 2rem;
 }
 
 .chat-container {
     background: white;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     border: 1px solid rgba(255,255,255,0.2);
-    margin-bottom: 1.5rem;
+    flex: 2 1 0%;
+    min-width: 400px;
+    max-width: 900px;
+    min-height: 600px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.input-container {
+.input-side {
     background: #f8f9fa;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.5rem;
     border: 1px solid #e9ecef;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex: 1 1 0%;
+    min-width: 320px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.textbox-container {
+    border-radius: 15px !important;
+    border: 2px solid #e9ecef !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+}
+
+.textbox-container:focus-within {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.chatbot-container {
+    border-radius: 15px !important;
+    border: 1px solid #e9ecef !important;
+    background: #fafbfc !important;
+    min-height: 500px !important;
+    height: 100% !important;
 }
 
 .btn-primary {
@@ -150,25 +171,6 @@ custom_css = """
     background: #5a6268 !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4) !important;
-}
-
-.textbox-container {
-    border-radius: 15px !important;
-    border: 2px solid #e9ecef !important;
-    transition: all 0.3s ease !important;
-    background: white !important;
-}
-
-.textbox-container:focus-within {
-    border-color: #667eea !important;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
-}
-
-.chatbot-container {
-    border-radius: 15px !important;
-    border: 1px solid #e9ecef !important;
-    background: #fafbfc !important;
-    min-height: 500px !important;
 }
 
 .footer {
@@ -222,22 +224,23 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
             专业领域: 手机销售
         </div>
     """)
-    # 聊天+输入区域合并
-    with gr.Column(elem_classes="chat-container"):
-        chatbot = gr.Chatbot(
-            height=500,
-            elem_classes="chatbot-container",
-            type='messages',
-            show_label=False
-        )
-        msg = gr.Textbox(
-            label="💬 请输入您的问题",
-            placeholder="例如：我想了解iPhone16的价格和配置，或者帮我推荐一款适合学生用的手机...",
-            lines=3,
-            max_lines=5,
-            elem_classes="textbox-container"
-        )
-        with gr.Row():
+    # 主体横向分布
+    with gr.Row(elem_classes="flex-main"):
+        with gr.Column(elem_classes="chat-container"):
+            chatbot = gr.Chatbot(
+                height=500,
+                elem_classes="chatbot-container",
+                type='messages',
+                show_label=False
+            )
+        with gr.Column(elem_classes="input-side"):
+            msg = gr.Textbox(
+                label="💬 请输入您的问题",
+                placeholder="例如：我想了解iPhone16的价格和配置，或者帮我推荐一款适合学生用的手机...",
+                lines=3,
+                max_lines=5,
+                elem_classes="textbox-container"
+            )
             submit_btn = gr.Button(
                 "🚀 发送消息", 
                 variant="primary",

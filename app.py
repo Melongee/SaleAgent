@@ -257,9 +257,9 @@ with gr.Blocks(title=GRADIO_TITLE, css=custom_css, theme=gr.themes.Soft()) as de
     gr.HTML("""
         <div class="footer">
             <p><strong>💡 使用提示：</strong></p>
-            <p>• 您可以询问产品信息、价格、配置、试驾安排等问题</p>
-            <p>• 系统会根据您的需求自动推荐合适的车型</p>
-            <p>• 支持多轮对话，可以深入讨论购车细节</p>
+            <p>• 您可以询问产品信息、价格、配置、到店体验等问题</p>
+            <p>• 系统会根据您的需求自动推荐合适的机型</p>
+            <p>• 支持多轮对话，可以深入讨论购买细节</p>
             <p><strong>🔒 隐私保护：</strong>您的对话信息仅用于提供更好的服务体验</p>
         </div>
     """)
